@@ -1,0 +1,961 @@
+@charset "UTF-8";
+/* html reset */
+* {
+    box-sizing: border-box;
+}
+article, aside, figcaption, figure, footer, header, main, nav, section { 
+    display:block; 
+}
+body, input, button, select, textarea {
+    font-family: verdana, sans-serif;
+}
+body {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    background: url(../img/mainbg.jpg) no-repeat fixed;
+    color: #ffffff;
+    
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: normal;
+}
+a, a:link, a:visited, a:active, a:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    vertical-align: top;
+    border: none;
+    max-width: 100%;
+}
+address {
+    font-style: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.hidden {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    font-size: 0.1%;
+    line-height: 0.1%;
+    width: 0.1%;
+    height: 0.1%;
+    overflow: hidden;
+}
+/* layout */
+.wrap {
+	width: 1200px;
+    margin: auto;
+}
+.main {
+    margin-top: 80px;
+    text-align: center;
+}
+/* table layout */
+table {
+	margin:auto;
+}
+/* 글자 크기 클래스 */
+.f30 {
+	font-size: 30px;
+}
+/* 스크롤바 */
+::-webkit-scrollbar {
+    width: 5px;
+    background: rgb(0,0,0);
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(255,215,0,1);
+}
+/* Header.jsp  */
+header {
+    width: 100%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+}
+.logo {
+    font-size: 30px; 
+    line-height: 80px;
+    display: inline-block; 
+}
+nav {
+	width: 1200px;
+	margin: auto;
+}
+nav > ul { 
+    float: right; 
+    padding: 0 35px 0 0; 
+}
+nav li { 
+    float:left; 
+    text-align: center; 
+    margin-left: 30px; }
+nav li a { 
+    text-decoration: none;
+    background: none;
+    border: none; 
+    color: #ffffff; 
+    line-height: 80px; 
+    font-size: 12px;
+}
+nav a:hover {
+    color: rgb(255,215,0);
+    cursor: pointer;
+}
+button {
+    font-weight: bold;
+    font-size: 20px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 0 10px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-width: 2px;
+    cursor: pointer;
+    color: #ffffff;
+}
+button:hover {
+	color: rgb(255,215,0);
+	border: 2px solid rgb(255,215,0);
+}
+/*FirstView.jsp*/
+.first {
+	width: 1000px;
+    height: 200px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:0;
+}
+.first p span {
+	background: linear-gradient(to left, #743ad5 0%, #F6CEF5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+}
+/* Footer.jsp */
+footer {
+	position: fixed;
+	bottom:0;
+	width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+.todaybox {
+	display: block;
+	font-size: 20px;
+	float: right;
+	text-align:center;
+}
+.copyrightbox {
+	width: 1200px;
+	margin: auto;
+}
+/* LoginForm.jsp */
+.loginform {
+	width: 500px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+}
+input {
+	background-color: rgba(0,0,0,0.3);
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-width: 2px;
+    cursor: pointer;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 3px;
+}
+input:hover {
+	color: rgb(255,215,0);
+	border: 2px solid rgb(255,215,0);
+}
+label {
+	display: inline-block;
+	width: 200px;
+	font-size:25px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-bottom: 5px;
+}
+label:hover {
+	color: rgb(255,215,0);
+}
+.loginform #id, .loginform #password {
+	width: 500px;
+	height: 80px;
+	font-size: 35px;
+}
+.loginbutton, .homebutton {
+	width: 150px;
+	height: 55px;
+	font-size: 25px;
+	font-weight: bold;
+	margin: 50px 25px 0;
+}
+/* JoinForm.jsp */
+.joinform {
+    width: 1000px;
+    margin: 20px auto 0;
+    text-align: left;
+    font-size: 0;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.joinform ul {
+	position: relative;
+	height: 550px;
+}
+.joinform li {
+	width: 800px;
+	height: 65px;
+	margin: auto;
+}
+.joinform label {
+	font-size: 20px;
+}
+.joinform input {
+	width: 500px;
+	height: 50px;
+	font-size: 20px;
+}
+.joinform input::placeholder {
+	color: rgba(255,255,255,0.5);
+	font-size: 15px;
+}
+.joinform #id {
+	width:400px;
+}
+.joinform .idchk {
+	width: 100px;
+	font-size: 15px;
+	padding: 0;
+	vertical-align: middle;
+	margin-bottom: 15px;
+}
+.joinform #birth {
+	width: 200px;
+}
+.joinform select {
+	width: 100px;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-width: 2px;
+    vertical-align: top;
+    font-size: 15px;
+}
+.joinform select:hover {
+	border: 2px solid rgb(255,215,0);
+	cursor: pointer;
+	color: rgb(255,215,0);
+}
+.joinform option {
+	background: black;
+}
+.joinform .birthdd {
+	width: 100px;
+}
+.joinform .gender {
+	vertical-align: middle;
+}
+.joinform #mail {
+	width: 300px;
+}
+.joinform p {
+	font-size: 30px;
+	display: inline;
+	margin: 0 10px;
+	text-align: center;
+}
+.joinform .mail_addr {
+	width:150px;
+}
+.joinform .joinbtnbox {
+	position: absolute;
+	left: 50%;
+	bottom: 0%;
+	transform: translate(-50%, -50%);
+	width: auto;
+}
+.joinform .joinbtn {
+	width: 200px;
+	margin: 20px auto 0;
+	display: inline-block;
+	font-weight: bold;
+}
+.joinform li button {
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+    padding: 0;
+}
+/* IdCheckForm.jsp */
+#chk {
+	width: 400px;
+	height: 150px;
+	margin: auto;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 0;
+}
+#chk #msg {
+	font-size: 20px;
+	margin: 5px;
+}
+#chk input {
+	font-size: 20px;
+}
+#chk #checkForm input {
+	width: 100px;
+	height: 50px;
+	padding: 0;
+}
+#chk #checkForm #id {
+	width: 250px;
+}
+#chk #cancelBtn, #chk #useBtn {
+	width: 100px;
+	height: 50px;
+	margin-top: 10px;
+}
+/* UserInfoForm.jsp 내 정보 */
+.myAccount {
+	width: 600px;
+	height: 500px;
+	font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:0;
+}
+.myAccount table {
+	width: 450px;
+	height: 440px;
+	font-size: 20px;
+	border-image: linear-gradient(to top, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-left: 2px solid;
+}
+.myAccntLeft {
+	text-align: left;
+	width: 150px;
+	font-size: 15px;
+	padding-left: 45px;
+}
+.myAccntbtn {
+	width: 150px;
+	margin: 0;
+}
+/* ModifyForm.jsp 회원 정보 수정 */
+.modify {
+    width: 600px;
+    height: 500px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:0;
+}
+.modify table {
+    width: 450px;
+    height: 440px;
+    font-size: 20px;
+    border-image: linear-gradient(to top, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-left: 2px solid;
+}
+.modifyLeft {
+	text-align: left;
+    width: 150px;
+    font-size: 15px;
+    padding-left: 45px;
+}
+.modify input {
+	width: 150px;
+	height: 50px;
+	font-size: 20px;
+    font-weight: bold;
+}
+.modify #password {
+	width: 200px;
+	color: skyblue;
+    border:none;
+	border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-bottom: 2px solid;
+}
+.modify #mail_id {
+	width: 100px;
+    color: skyblue;
+	border:none;
+	border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-bottom: 2px solid;
+}
+.modify #mail_addr {
+    width: 130px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    color: skyblue;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-width: 2px;
+    vertical-align: top;
+    font-size: 15px;
+}
+.modify #mail_addr:hover {
+	cursor: pointer;
+}
+.modify option {
+    background: black;
+    color: skyblue;
+}
+.modify #phone {
+	width: 200px;
+	color: skyblue;
+	border:none;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-bottom: 2px solid;
+}
+/* DeleteForm.jsp 회원 탈퇴 화면 */
+.delete {
+    width: 600px;
+    height: 300px;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:0;
+}
+.delete h1 {
+	font-size: 40px;
+}
+.delete label {
+	width: 400px;
+	margin: 30px auto;
+}
+.delete input {
+	width: 150px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.delete #password {
+	display: block;
+	margin: auto;
+	width: 450px;
+	height: 70px;
+	color: red;
+	font-size: 20px;
+}
+.delete #password::placeholder {
+	font-size: 18px;
+	color: rgba(255,0,0,0.5);
+}
+.delete p {
+	color: red;
+	font-size: 18px;
+	display: block;
+	margin: auto;
+}
+/* ResultForm.jsp 가입,수정,탈퇴 결과화면 */
+.result {
+	width: 800px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:0;
+}
+.result h1 {
+	font-size: 40px;
+}
+.result button {
+	width: 150px;
+	height: 50px;
+}
+
+
+/* 게시판 관련 css */
+
+/* BoardListForm.jsp 게시판 목록 */
+.boardwrap {
+	position: relative;
+	width: 1000px;
+	margin: auto;
+}
+.board {
+	position: relative;
+	width: 1000px;
+	margin: auto;
+	padding-top: 20px;
+}
+.board table {
+	width: 1000px;
+	height: 500px;
+	font-size: 15px;
+    border-spacing: 0;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.board .boardnum {
+	width: 100px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 2px solid;
+	border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.board .boardsub {
+	width: 400px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 2px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.board .boardid {
+	width: 150px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.board .boardday {
+	width: 150px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 2px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.board .boardck {
+	width: 100px;
+	font-size: 20px;
+	font-weight: bold;
+	border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.board a:hover {
+	color: rgb(255,215,0);
+	font-weight: bold;
+	cursor: pointer;
+}
+.board .bsub {
+	padding-left: 20px;
+}
+.board span {
+	color: skyblue;
+	font-size: 12px;
+}
+.pageForm {
+	width: 500px;
+	height: 30px;
+	margin: auto;
+	font-size: 18px;
+}
+.pageForm a {
+	display: inline-block;
+}
+.pageForm a:hover {
+	color: rgb(255,215,0);
+	font-weight: bold;
+    cursor: pointer;
+}
+.writeBox {
+	width: 220px;
+	height: 50px;
+	position: absolute;
+	right: 50px;
+    text-align: left;
+}
+.writeBox input {
+	width: 100px;
+	height: 50px;
+	font-size: 20px;
+}
+.writeBox p {
+	padding: 0 0 0 10px;
+}
+.writeBox a {
+	font-size: 20px;
+	color: rgb(255, 215, 0);
+	border-bottom: 1px solid rgb(255,215,0);
+}
+.writeBox a:hover {
+	color: skyblue;
+	border-bottom: 1px solid skyblue;
+}
+.searchForm {
+	margin:auto;
+	font-size: 0;
+}
+.searchForm select {
+	width: 100px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-width: 2px;
+    vertical-align: top;
+    font-size: 20px;
+}
+.searchForm select:hover {
+	border: 2px solid rgb(255,215,0);
+	cursor: pointer;
+	color: rgb(255,215,0);
+}
+.searchForm option {
+	background: #000;
+}
+.searchForm #search {
+	width: 300px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.searchForm #searchbtn {
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	font-size: 20px;
+}
+/* BoardDetailForm.jsp 게시글 상세보기 */
+.contentBoard {
+	font-size: 13px !important;
+}
+.boardleft {
+	width: 150px;
+	font-size: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.boardright {
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    padding: 5px 0;
+}
+.contentscroll {
+    width: 100%;
+    height: 400px;
+    overflow: auto;
+    overflow-x: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-align: justify;
+    padding: 20px;
+}
+.boardbutton input {
+	width: 150px;
+	height: 30px;
+	margin-top: 20px;
+	font-size: 15px;
+}
+.commentTable {
+	width: 750px;
+	font-size: 13px;
+	margin: auto;
+	text-align: left;
+}
+.commentbox {
+	border-bottom: 1px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.commentbox .emptyBox {
+	padding: 10px;
+	float: left;
+}
+.commentbox .emptyBoxArrow {
+	padding: 5px;
+	border-bottom:1px solid white;
+	border-left:1px solid white
+}
+.commentbox ul {
+	width: 700px;
+	float: left;
+	margin-top: 10px;
+}
+.commentbox .commentId {
+	font-size: 15px;
+	font-weight: bold;
+}
+.commentbox .commentContent {
+	font-size: 13px;
+}
+.commentbox .commentDate {
+	font-size: 12px;
+	color: rgba(255,255,255,0.7);
+}
+.commentbox .commentBtn {
+	float: right;
+	margin-bottom: 5px;
+}
+.commentbox .commentBtn a {
+	background: rgba(255,255,255,0.7);
+	color: #000000;
+	font-weight: bold;
+	padding: 2px;
+}
+.mask {
+	position: fixed;
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	top: 0;
+    left: 0;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.mask-con {
+	background: #000000;
+	position: absolute;
+	width: 1000px;
+	height: 600px;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+	border: 1px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+	overflow: auto;
+}
+.mask-con a:hover {
+	color: rgb(255,215,0);
+}
+.mask-show {
+	opacity: 1; 
+    visibility: visible; 
+    transform: scale(1.0); 
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+#writeCommentForm {
+	width: 700px;
+	margin: 30px auto;
+}
+#writeCommentForm p {
+	margin: 0;
+	width: 150px;
+	display: inline-block;
+}
+#writeCommentForm .writeId {
+	text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+#writeCommentForm textarea {
+	background: rgba(0,0,0,0.5);
+	overflow: auto;
+	color: #ffffff;
+	width: 500px;
+	height: 100px;
+	padding: 20px 20px;
+	border: 1px solid rgba(255,215,0,0.5);
+}
+
+/* BoardWriteForm.jsp 글쓰기*/
+.writeBoard {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.writeBoard table {
+	width: 1000px;
+	height: 500px;
+    border: 2px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+.writeBoard .writeSub {
+	border: 0;
+	width: 800px;
+	height: 30px;
+	font-size: 20px;
+}
+.writeBoard .boardfile {
+	border-right: 2px solid;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.writeBoard .upload-name {
+	display: inline-block;
+	font-size: 15px;
+	background-color: rgba(0,0,0,0.5);
+	border: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 300px;
+	padding: 15px;
+	color: rgba(200,200,200,0.5);
+	cursor: default;
+}
+.writeBoard label {
+	width: 150px;
+	display: inline-block;
+	color: #ffffff;
+	font-size: 15px;
+    cursor: pointer;
+    margin:0;
+    background-color: rgba(0,0,0,0.5);
+    border: 5px solid;
+    border-image: linear-gradient(to right, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+}
+.writeBoard label:hover {
+	border: 5px solid rgb(255,215,0);
+}
+.writeBoard .boardfileinput {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow:hidden;
+	clip:rect(0,0,0,0);
+	border:0;
+}
+.writeBoard textarea {
+	width: 800px;
+	overflow: auto;
+	background: rgba(0,0,0,0);
+	color: #ffffff;
+	font-size: 13px;
+	border: 0;
+}
+.writeBoard input {
+	width: 150px;
+	height: 30px;
+}
+/* BoardReplyForm.jsp 답글 */
+.replyBoard {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.replyBoard table {
+	width: 1000px;
+    height: 500px;
+    border: 2px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+.replyBoard textarea {
+    width: 800px;
+    overflow: auto;
+    background: rgba(0,0,0,0);
+    color: #ffffff;
+    font-size: 13px;
+    border: 0;
+}
+.replyBoard input {
+    width: 150px;
+    height: 30px;
+}
+.replyBoard .replySub {
+    border: 0;
+    width: 800px;
+    height: 30px;
+    font-size: 20px;
+}
+/* MemberListForm.jsp 전체회원정보 */
+.allMemberBox {
+    width: 1200px;
+    height: 600px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto;
+}
+.allMemberBox table {
+    border: 2px solid;
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-spacing: 0;
+    margin-bottom: 10px;
+}
+.allMemberBox table tr {
+	width: 1200px;
+	height: 50px;
+}
+.allMemberBox table td {
+	width: 150px;
+}
+.allMemberBox .ambTitle {
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(255,215,0);
+}
+.allMemberBox .ambTitle td {
+	border-bottom: 2px solid #743ad5;
+}
+/* BoardUpdateForm.jsp */
+input.updateSub {
+	width: 450px;
+    height: 30px;
+    border: none;
+}
+
+
+
+
+
+
